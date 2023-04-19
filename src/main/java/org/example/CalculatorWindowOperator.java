@@ -42,15 +42,19 @@ public class CalculatorWindowOperator {
         return check;
     }
     public static void changeText(String text) {
-        if(text=="CE")
+        if(text.equals("CE"))
         {
             String mainText="";
             field.setText(mainText);
         }
-        else if(text=="=")
+        else if(text.equals("="))
         {
-            Math.getMathOperation(field.getText());
-            label.setText(Math.oblicznia());
+            Mathematic.getMathOperation(field.getText());
+            label.setText(Mathematic.oblicznia());
+        }
+        else if(text.equals("√"))
+        {
+            label.setText(Mathematic.getSqrtOf(field.getText()));
         }
         else {
             String mainText = field.getText();

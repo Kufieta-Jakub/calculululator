@@ -1,8 +1,8 @@
 package org.example;
 
-import com.sun.jdi.IntegerValue;
+import java.lang.Math;
 
-public class Math {
+public class Mathematic {
     static float[] liczby=new float[2];
     static char znak;
     public static void getMathOperation(String mathOperation)
@@ -42,5 +42,10 @@ public class Math {
             }
         }
         return "nan";
+    }
+    public static String getSqrtOf(String text)
+    {
+        float wynik= (float) Math.sqrt(Float.valueOf(text));
+        return String.valueOf(wynik);
     }
 }
