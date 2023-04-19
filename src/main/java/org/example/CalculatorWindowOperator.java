@@ -20,6 +20,7 @@ public class CalculatorWindowOperator {
         //field settings
         panel.add(field);
         field.setBounds(0,0,310,50);
+        field.addKeyListener(new MyKeyListener());
         return panel;
     }
     public static JCheckBox checkbox()
@@ -41,10 +42,17 @@ public class CalculatorWindowOperator {
         return check;
     }
     public static void changeText(String text) {
-        String mainText=field.getText();
-        mainText+=text;
-        field.setText(mainText);
-        label.setText(mainText);
+        if(text=="CE")
+        {
+            String mainText="";
+            field.setText(mainText);
+        }
+        else {
+            String mainText = field.getText();
+            mainText += text;
+            field.setText(mainText);
+            label.setText(mainText);
+        }
     }
 
 
