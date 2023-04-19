@@ -42,24 +42,23 @@ public class CalculatorWindowOperator {
         return check;
     }
     public static void changeText(String text) {
-        if(text.equals("CE"))
+        try {
+            if (text.equals("CE")) {
+                String mainText = "";
+                field.setText(mainText);
+            } else if (text.equals("=")) {
+                Mathematic.getMathOperation(field.getText());
+                label.setText(Mathematic.oblicznia());
+            } else if (text.equals("√")) {
+                label.setText(Mathematic.getSqrtOf(field.getText()));
+            } else {
+                String mainText = field.getText();
+                mainText += text;
+                field.setText(mainText);
+            }
+        }catch(Exception e)
         {
-            String mainText="";
-            field.setText(mainText);
-        }
-        else if(text.equals("="))
-        {
-            Mathematic.getMathOperation(field.getText());
-            label.setText(Mathematic.oblicznia());
-        }
-        else if(text.equals("√"))
-        {
-            label.setText(Mathematic.getSqrtOf(field.getText()));
-        }
-        else {
-            String mainText = field.getText();
-            mainText += text;
-            field.setText(mainText);
+            label.setText("Mordo coś źle wpisałeś");
         }
     }
 

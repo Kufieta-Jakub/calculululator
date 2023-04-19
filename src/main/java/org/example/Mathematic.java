@@ -41,7 +41,7 @@ public class Mathematic {
                 return String.valueOf(wynik);
             }
         }
-        return "nan";
+        return "nie no mordo coś źle wpisałeś";
     }
     public static String getSqrtOf(String text)
     {
