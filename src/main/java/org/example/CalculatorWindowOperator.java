@@ -47,11 +47,15 @@ public class CalculatorWindowOperator {
             String mainText="";
             field.setText(mainText);
         }
+        else if(text=="=")
+        {
+            Math.getMathOperation(field.getText());
+            label.setText(Math.oblicznia());
+        }
         else {
             String mainText = field.getText();
             mainText += text;
             field.setText(mainText);
-            label.setText(mainText);
         }
     }
 

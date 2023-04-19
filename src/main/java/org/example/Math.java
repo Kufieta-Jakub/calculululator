@@ -1,33 +1,46 @@
 package org.example;
 
-public class Math {
-    static String mainMathText;
-    int value=0;
-    static String[] twoNumbers= new String[2];
-    static String[] twoSigns= new String[2];
-    public static String getText(String mainText)
-    {
-        mainMathText=mainText;
-        return mainText;
-    }
-    static float result;
-    public static void getParameters(String number, String sign)
-    {
-        if(twoNumbers[0]==null)
-        {
-            twoNumbers[0]=number;
-            twoSigns[0]=sign;
-        }
-        else if(twoNumbers[0]!=null && twoNumbers[1]==null)
-        {
-            twoNumbers[1]=number;
-            twoSigns[1]=sign;
-        }
-        else
-        {
-            twoNumbers[0]=twoNumbers[1];
-            twoNumbers[1]=number;
-        }
+import com.sun.jdi.IntegerValue;
 
+public class Math {
+    static float[] liczby=new float[2];
+    static char znak;
+    public static void getMathOperation(String mathOperation)
+    {
+
+        String character="+-/%x=";
+        for(int i=0;i<mathOperation.length();i++)
+        {
+            char c = mathOperation.charAt(i);
+            if(character.indexOf(c)!=-1) {
+
+                    liczby[0] = Float.valueOf(mathOperation.substring(0, i));
+                    znak = mathOperation.charAt(i);
+                    int j=i+1;
+                    liczby[1]=Float.valueOf(mathOperation.substring(j));
+            }
+        }
+    }
+    public static String oblicznia()
+    {
+        switch(znak){
+            case '+':{
+                float wynik=liczby[0]+liczby[1];
+                return String.valueOf(wynik);
+            }
+            case '-':{
+                float wynik=liczby[0]-liczby[1];
+                return String.valueOf(wynik);
+            }
+            case 'x':{
+                float wynik=liczby[0]*liczby[1];
+                return String.valueOf(wynik);
+            }
+            case '/':{
+                float wynik=liczby[0]/liczby[1];
+                return String.valueOf(wynik);
+            }
+        }
+        return "nan";
     }
 }
