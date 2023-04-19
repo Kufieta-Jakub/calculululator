@@ -5,12 +5,14 @@ import javax.swing.*;
 public class Window extends JFrame {
     //-tworzenie okienka
     Window() {
+        this.setTitle("Kalkulator by Kufieta");
         this.setSize(350, 470);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setVisible(true);
         addButtons();
+        this.add(CalculatorWindowOperator.checkbox());
         this.add(CalculatorWindowOperator.returnJPanel());
     }
 

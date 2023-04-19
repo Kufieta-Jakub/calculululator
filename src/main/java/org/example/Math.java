@@ -2,28 +2,32 @@ package org.example;
 
 public class Math {
     static String mainMathText;
-    static float[] operationTable;
-    static float finalNumber;
+    int value=0;
+    static String[] twoNumbers= new String[2];
+    static String[] twoSigns= new String[2];
     public static String getText(String mainText)
     {
         mainMathText=mainText;
         return mainText;
     }
-    private static void checkifTextIsANumber()
+    static float result;
+    public static void getParameters(String number, String sign)
     {
+        if(twoNumbers[0]==null)
+        {
+            twoNumbers[0]=number;
+            twoSigns[0]=sign;
+        }
+        else if(twoNumbers[0]!=null && twoNumbers[1]==null)
+        {
+            twoNumbers[1]=number;
+            twoSigns[1]=sign;
+        }
+        else
+        {
+            twoNumbers[0]=twoNumbers[1];
+            twoNumbers[1]=number;
+        }
 
-        try{
-            float number = Float.valueOf(mainMathText);
-            finalNumber = number;
-            System.out.println(number);
-        }
-        catch (Exception ex){
-            System.out.println("Thats not the number");
-            operationTable[0]=finalNumber;
-        }
-    }
-    public static void returnResult()
-    {
-        checkifTextIsANumber();
     }
 }
