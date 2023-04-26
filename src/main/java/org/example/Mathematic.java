@@ -19,6 +19,10 @@ public class Mathematic {
                     int j=i+1;
                     liczby[1]=Float.valueOf(mathOperation.substring(j));
             }
+            else
+            {
+                liczby[0]= Float.valueOf(mathOperation);
+            }
         }
     }
     public static String oblicznia()
@@ -41,7 +45,7 @@ public class Mathematic {
                 return String.valueOf(wynik);
             }
         }
-        return "nie no mordo coś źle wpisałeś";
+        return String.valueOf(liczby[0]);
     }
     public static String getSqrtOf(String text)
     {

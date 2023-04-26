@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CalculatorWindowOperator {
-    static JLabel label = new JLabel("", SwingConstants.RIGHT);
+    public static JLabel label = new JLabel("", SwingConstants.RIGHT);
     static JTextField field = new JTextField();
 
 
@@ -49,6 +49,7 @@ public class CalculatorWindowOperator {
             } else if (text.equals("=")) {
                 Mathematic.getMathOperation(field.getText());
                 label.setText(Mathematic.oblicznia());
+                MemoryOperator.getTextFromField(label.getText());
             } else if (text.equals("√")) {
                 label.setText(Mathematic.getSqrtOf(field.getText()));
             } else {

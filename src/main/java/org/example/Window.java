@@ -14,6 +14,7 @@ public class Window extends JFrame {
         addButtons();
         this.add(CalculatorWindowOperator.checkbox());
         this.add(CalculatorWindowOperator.returnJPanel());
+        addMemoryButtons();
     }
 
     //-tworzenie przycisków
@@ -46,5 +47,12 @@ public class Window extends JFrame {
             y += height + 5;
         }
         this.add(ButtonOperator.returnButton(x, y, 75, 105, tab2[3]));
+    }
+
+    void addMemoryButtons()
+    {
+        this.add(MemoryOperator.addMemoryB(250,"M+"));
+        this.add(MemoryOperator.addMemoryB(170,"M-"));
+        this.add(MemoryOperator.addMemoryB(90,"MRC"));
     }
 }
